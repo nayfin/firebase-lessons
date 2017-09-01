@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+# Sandbox: we don't want this getting pulled into projects
+/src/app/sandbox
+
 # dependencies
 /node_modules
 
