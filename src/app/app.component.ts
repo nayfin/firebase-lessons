@@ -10,14 +10,19 @@ export class AppComponent {
   title = 'Firebase Sandbox';
 
   courses$: FirebaseListObservable<any>;
-  firstCourse$: FirebaseObjectObservable<any>;
+  lastCourse$: any;
   constructor(private db: AngularFireDatabase) {
 
     this.courses$ = db.list('courses');
     this.courses$.subscribe(console.log);
 
-    this.firstCourse$ = db.object('courses/-Kt2Go8gofwGeNMb1f7p');
-    this.firstCourse$.subscribe(console.log);
+    this.courses$.map(courses => {
+      return courses[courses.length - 1];
+    }).subscribe(
+      (course) => this.lastCourse$ = course
+    );
+    // this.lastCourse$ = db.object('courses').;
+    // this.lastCourse$.subscribe(console.log);
   }
 
   listPush() {
@@ -25,7 +30,7 @@ export class AppComponent {
   }
 
   listRemove() {
-
+    this.courses$.remove(this.lastCourse$);
   }
 
   listUpdate() {
