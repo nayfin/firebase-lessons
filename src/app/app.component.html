@@ -3,5 +3,11 @@
   <div class="router-container" fxFlex> 
     <router-outlet></router-outlet>
   </div>
-  <!-- <div class="footer" fxFlex="30px"></div> -->
+  <div class="footer" fxFlex="50px">
+    <button md-raised-button (click)="listPush()">List Push</button>
+    <button md-raised-button (click)="listRemove()">List Remove</button>
+    <button md-raised-button (click)="listUpdate()">List Update</button>
+    <button md-raised-button (click)="objUpdate()">Object Update</button>
+    <button md-raised-button (click)="objSet()">Object Set</button>
+  </div>
 </div>   
