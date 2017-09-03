@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { initializeApp, database} from 'firebase';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,21 +8,12 @@ import { initializeApp, database} from 'firebase';
 })
 export class AppComponent {
   title = 'Seed Title';
-  constructor() {
+  constructor(private db: AngularFireDatabase) {
 
-    const config = {
-      apiKey: 'AIzaSyDB10dQMqsZg2WDyg6gQ2MSeRRME71oDHQ',
-      authDomain: 'fir-lessons-aabef.firebaseapp.com',
-      databaseURL: 'https://fir-lessons-aabef.firebaseio.com',
-      projectId: 'fir-lessons-aabef',
-      storageBucket: 'fir-lessons-aabef.appspot.com',
-      messagingSenderId: '847664519994'
-    };
-    initializeApp(config);
+    const courses$: FirebaseListObservable<any> = db.list('courses');
 
-    const root = firebase.database().ref();
-    root.on('value', (snap)=>{
-      console.log(snap);
-    });
+    courses$.subscribe(
+      val => console.log('courses', val)
+    );
   }
 }

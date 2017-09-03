@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 // Internal Modules
+import { FirebaseModule } from './modules/angularFire.module';
 import { DesignModule } from './modules/design.module';
 import { CoreModule } from './core/core.module';
 // Routing
@@ -29,6 +30,7 @@ import { InputComponent } from './lib/forms/input/input.component';
     HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FirebaseModule,
     DesignModule,
     CoreModule,
   ],
