@@ -2,13 +2,17 @@
   <div fxLayoutAlign="space-between center" fxFlexFill>
     <div >{{ title }}</div>
     <div>
-      <a md-raised-button 
-         *ngFor="let route of routes"
-         [routerLink]='[route.path]' 
-         color="accent">
-        {{route.title}}
-      </a>
-      <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-button-toggle-group>
+        <md-button-toggle 
+          *ngFor="let route of routes"
+          [routerLink]='[route.path]'
+          routerLinkActive="mat-button-toggle-checked" 
+          color="primary"
+          value="">
+          {{route.title}}
+        </md-button-toggle>
+      </md-button-toggle-group>
+      <!-- <button md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon class="header-icon" >more_vert</md-icon>
       </button>
   
@@ -17,7 +21,7 @@
           <md-icon>dialpad</md-icon>
           <span>TODO</span>
         </button>
-      </md-menu> 
+      </md-menu>  -->
     </div>
   </div>
 </md-toolbar>

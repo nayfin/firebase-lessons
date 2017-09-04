@@ -1,26 +1,8 @@
-<div class="main-container">  
-  <md-card class="home-card">
-    <md-card-title>
-        All Lessons
-    </md-card-title>
-    <md-card-subtitle>
-      Total Lesson: {{filteredLessons?.length}}
-    </md-card-subtitle>
-    <md-form-field>
-      <input mdInput type="text" 
-             placeholder="Search Lessons"
-             (keyup)="filterLessons(lessonFilter.value)" 
-             #lessonFilter>
-    </md-form-field>
-      <!-- Lessons Table -->
-    <md-list>
-      <md-list-item *ngFor="let lesson of filteredLessons">
-        <md-icon md-list-icon>folder</md-icon>
-        <h2 md-line>{{lesson.description}}</h2>
-          <span md-line><md-icon md-list-icon class="duration-icon">access_time</md-icon> <span class="duration-text">{{lesson.duration}}</span> </span>
-      </md-list-item>
-    </md-list>    
-    <md-card-actions>    
-    </md-card-actions>
-  </md-card>
-</div>
+
+<md-list>
+  <md-list-item *ngFor="let lesson of lessons">
+    <md-icon md-list-icon>folder</md-icon>
+    <h2 md-line>{{lesson.description}}</h2>
+      <span md-line><md-icon md-list-icon class="duration-icon">access_time</md-icon> <span class="duration-text">{{lesson.duration}}</span> </span>
+  </md-list-item>
+</md-list>  

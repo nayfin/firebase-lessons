@@ -16,12 +16,16 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 // App Components
 import { AppComponent } from './app.component';
+import { CoursesComponent } from './courses/courses.component';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
+// Library Components TODO: factor into library module
 import { FormComponent } from './lib/forms/form/form.component';
 import { InputComponent } from './lib/forms/input/input.component';
 // Services
 import { LessonsService } from './shared/model/lessons.service';
-import { CoursesComponent } from './courses/courses.component';
-import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { CoursesService } from './shared/model/courses.service';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { LessonsComponent } from './lessons/lessons.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { LessonsListComponent } from './lessons-list/lessons-list.component';
     FormComponent,
     InputComponent,
     CoursesComponent,
-    LessonsListComponent
+    LessonsListComponent,
+    CourseDetailComponent,
+    LessonsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,10 @@ import { LessonsListComponent } from './lessons-list/lessons-list.component';
     DesignModule,
     CoreModule,
   ],
-  providers: [LessonsService],
+  providers: [
+    LessonsService,
+    CoursesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
