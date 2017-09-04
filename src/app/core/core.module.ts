@@ -6,10 +6,14 @@ import { AppRoutingModule } from './../app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 
+// Will be moved to routed location and out of CoreModule
+import { LessonsListComponent } from './../lessons-list/lessons-list.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     HomeComponent,
+    LessonsListComponent
   ],
   imports: [
     AppRoutingModule,
@@ -21,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
   ],
   providers: [
+
   ]
 })
 export class CoreModule { }

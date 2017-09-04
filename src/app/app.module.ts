@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 // Internal Modules
 import { FirebaseModule } from './modules/angularFire.module';
 import { DesignModule } from './modules/design.module';
@@ -16,12 +18,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './lib/forms/form/form.component';
 import { InputComponent } from './lib/forms/input/input.component';
+// Services
+import { LessonsService } from './shared/model/lessons.service';
+// import { LessonsListComponent } from './lessons-list/lessons-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    InputComponent
+    InputComponent,
+    // LessonsListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { InputComponent } from './lib/forms/input/input.component';
     DesignModule,
     CoreModule,
   ],
-  providers: [],
+  providers: [LessonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
