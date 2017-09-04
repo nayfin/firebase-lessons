@@ -8,14 +8,23 @@ import { LessonsService } from '../shared/model/lessons.service';
 })
 export class LessonsListComponent implements OnInit {
 
-  lessons: Lesson[];
-
+  allLessons: Lesson[];
+  filteredLessons: Lesson[];
   constructor( private lessonsService: LessonsService ) { }
 
   ngOnInit() {
-    this.lessonsService.findAllLessons().subscribe((lessons) => {
-      this.lessons = lessons;
+    this.lessonsService.findAllLessons()
+      .subscribe((lessons) => {
+        this.allLessons = this.filteredLessons = lessons;
+      });
+  }
+
+  filterLessons(filterString: string) {
+    this.filteredLessons = this.allLessons.filter(lesson => {
+      console.log(lesson.description);
+      return lesson.description.includes(filterString);
     });
+    console.log(filterString);
   }
 
 }

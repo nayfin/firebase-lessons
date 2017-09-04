@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.main-container {
+  margin: 16px;
+}
 .router-container {
   overflow: auto;
 }

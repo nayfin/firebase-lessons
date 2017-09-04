@@ -2,6 +2,12 @@
   <div fxLayoutAlign="space-between center" fxFlexFill>
     <div >{{ title }}</div>
     <div>
+      <a md-raised-button 
+         *ngFor="let route of routes"
+         [routerLink]='[route.path]' 
+         color="accent">
+        {{route.title}}
+      </a>
       <button md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon class="header-icon" >more_vert</md-icon>
       </button>

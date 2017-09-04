@@ -1,11 +1,7 @@
 
-.home-container {
-  margin: 16px;
-}
-
-/* md-card.home-card {
+md-card.home-card {
   height: 5000px;
-} */
+} 
 
 span > md-icon.duration-icon {
   font-size: 16px;

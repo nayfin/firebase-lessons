@@ -20,14 +20,16 @@ import { FormComponent } from './lib/forms/form/form.component';
 import { InputComponent } from './lib/forms/input/input.component';
 // Services
 import { LessonsService } from './shared/model/lessons.service';
-// import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { CoursesComponent } from './courses/courses.component';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     InputComponent,
-    // LessonsListComponent
+    CoursesComponent,
+    LessonsListComponent
   ],
   imports: [
     BrowserModule,
