@@ -1,21 +1,21 @@
 <div class="main-container">  
-    <md-card class="lessons-card">
-      <md-card-title>
-          All Lessons
-      </md-card-title>
-      <md-card-subtitle>
-        Total Lesson: {{filteredLessons?.length}}
-      </md-card-subtitle>
-      <md-form-field>
-        <input mdInput type="text" 
-               placeholder="Search Lessons"
-               (keyup)="filterLessons(lessonFilter.value)" 
-               #lessonFilter>
-      </md-form-field>
-        <!-- Lessons Table -->
-      <lessons-list [lessons]="filteredLessons"></lessons-list>
-      <md-card-actions align="end">    
-        <button md-button>GO TO LESSON</button>
-      </md-card-actions>
-    </md-card>
+  <md-card class="lessons-card">
+    <md-card-title>
+        All Lessons
+    </md-card-title>
+    <md-card-subtitle>
+      Total Lesson: {{filteredLessons?.length}}
+    </md-card-subtitle>
+    <md-form-field>
+      <input mdInput type="text" 
+             placeholder="Search Lessons"
+             (keyup)="filterLessons(lessonFilter.value)" 
+             #lessonFilter>
+    </md-form-field>
+      <!-- Lessons Table -->
+    <lessons-list [lessons]="filteredLessons"></lessons-list>
+    <md-card-actions align="end">    
+      <button md-button>GO TO LESSON</button>
+    </md-card-actions>
+  </md-card>
   </div>

@@ -23,7 +23,7 @@ export class LessonsComponent implements OnInit {
 
   filterLessons(filterString: string) {
     this.filteredLessons = this.allLessons.filter(lesson => {
-      return lesson.description.includes(filterString);
+      return lesson.description.toLowerCase().includes(filterString.toLowerCase());
     });
   }
 

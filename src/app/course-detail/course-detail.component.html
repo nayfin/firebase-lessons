@@ -1,3 +1,25 @@
-<p>
-  course-detail works!
-</p>
+<div class="main-container">
+  <md-card class="lessons-card">
+    <md-card-title fxFlexAlign="space-between">
+        Course Lessons
+        <a md-mini-fab href="">
+            <md-icon >add</md-icon>
+        </a>
+    </md-card-title>
+    <!-- <md-card-subtitle>
+      Total Lesson: {{filteredLessons?.length}}
+    </md-card-subtitle>
+    <md-form-field>
+      <input mdInput type="text" 
+             placeholder="Search Lessons"
+             (keyup)="filterLessons(lessonFilter.value)" 
+             #lessonFilter>
+    </md-form-field> -->
+      <!-- Lessons Table -->
+    <lessons-list [lessons]="courseLessons"></lessons-list>
+    <md-card-actions align="end">    
+      <button md-button>PREVIOUS</button>
+      <button md-button>NEXT</button>
+    </md-card-actions>
+  </md-card>
+</div>
