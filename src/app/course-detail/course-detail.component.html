@@ -1,10 +1,10 @@
 <div class="main-container">
   <md-card class="lessons-card">
-    <md-card-title fxFlexAlign="space-between">
-        Course Lessons
-        <a md-mini-fab href="">
+    <md-card-title fxLayoutAlign="space-between">
+        {{ (course$ | async)?.description }}
+        <button md-mini-fab >
             <md-icon >add</md-icon>
-        </a>
+        </button>
     </md-card-title>
     <!-- <md-card-subtitle>
       Total Lesson: {{filteredLessons?.length}}
@@ -18,8 +18,8 @@
       <!-- Lessons Table -->
     <lessons-list [lessons]="courseLessons"></lessons-list>
     <md-card-actions align="end">    
-      <button md-button>PREVIOUS</button>
-      <button md-button>NEXT</button>
+      <button md-button (click)="previousLessons()">PREVIOUS</button>
+      <button md-button (click)="nextLessons()">NEXT</button>
     </md-card-actions>
   </md-card>
 </div>

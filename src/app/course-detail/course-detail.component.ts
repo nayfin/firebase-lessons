@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CoursesService } from './../shared/model/courses.service';
 import { Lesson } from './../shared/model/lesson';
+import { Course } from './../shared/model/course';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,18 +15,39 @@ import { Lesson } from './../shared/model/lesson';
 export class CourseDetailComponent implements OnInit {
 
   courseLessons: Lesson[];
+  course$: Observable<Course>;
+  courseUrl: string;
+
   constructor( private coursesService: CoursesService,
                private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let courseUrl: string;
+
     this.route.params.subscribe(params => {
-      courseUrl = params['id'];
-      this.coursesService.findLessonsForCourse(courseUrl)
-        .subscribe((lessons) => {
-          this.courseLessons = lessons;
-        });
+
+      this.courseUrl = params['id'];
+
+      this.course$ = this.coursesService.findCourseByUrl(this.courseUrl);
+
+      const courseLessons$ = this.coursesService.loadFirstLessonsPage(this.courseUrl, 3);
+      // this.courseLessons$ = this.coursesService.findLessonsForCourse(courseUrl);
+      courseLessons$.subscribe(lessons => this.courseLessons = lessons);
     });
   }
 
+  previousLessons() {
+    this.coursesService.loadPreviousPage(
+      this.courseUrl,
+      this.courseLessons[0].$key,
+      3
+    ).subscribe(lessons => this.courseLessons = lessons);
+  }
+
+  nextLessons() {
+    this.coursesService.loadNextPage(
+      this.courseUrl,
+      this.courseLessons[this.courseLessons.length - 1].$key,
+      3
+    ).subscribe(lessons => this.courseLessons = lessons);
+  }
 }
