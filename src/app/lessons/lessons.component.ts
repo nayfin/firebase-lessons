@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Lesson } from '../shared/model/lesson';
 import { LessonsService } from '../shared/model/lessons.service';
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'bh-lessons',
   templateUrl: './lessons.component.html',
   styleUrls: ['./lessons.component.css']

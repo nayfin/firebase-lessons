@@ -1,6 +1,6 @@
 
 <md-list>
-  <md-list-item *ngFor="let lesson of lessons">
+  <md-list-item *ngFor="let lesson of lessons" (click)="selectLesson(lesson)">
     <md-icon md-list-icon>folder</md-icon>
     <h2 md-line>{{lesson.description}}</h2>
       <span md-line><md-icon md-list-icon class="duration-icon">access_time</md-icon> <span class="duration-text">{{lesson.duration}}</span> </span>

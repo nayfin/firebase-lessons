@@ -1,0 +1,23 @@
+<div class="main-container">
+  <md-card>
+    <md-card-header>
+        <md-card-title>{{ lesson?.description }} </md-card-title>
+        <md-card-subtitle>{{ lesson?.duration }}</md-card-subtitle>
+    </md-card-header>
+    <iframe 
+      *ngIf="lesson?.videoUrl"
+      md-card-image
+      allowfullscreen
+      height="500"
+      frameborder="0" 
+      [src]="lesson?.videoUrl | safeUrl"> 
+    </iframe> 
+    <md-card-content>
+      {{ lesson?.longDescription }}
+    </md-card-content>
+    <md-card-actions align="end">
+      <button md-button (click)="nextLesson(lesson)">NEXT LESSON</button>
+      <button md-button (click)="previousLesson(lesson)">PREVIOUS LESSON</button>
+    </md-card-actions>
+  </md-card>
+</div>

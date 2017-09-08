@@ -81,6 +81,6 @@ export class CoursesService {
     const lessonKeys$ = this.findLessonKeysByCourseUrl(courseUrl, query);
 
     return this.findLessonsForLessonKeys(lessonKeys$)
-    .map( lessons => lessons.slice(lessons.length - 1));
+    .map( lessons => lessons.slice(0, lessons.length - 1));
   }
 }

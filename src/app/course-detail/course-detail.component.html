@@ -16,7 +16,7 @@
              #lessonFilter>
     </md-form-field> -->
       <!-- Lessons Table -->
-    <lessons-list [lessons]="courseLessons"></lessons-list>
+    <lessons-list [lessons]="courseLessons" (lessonEmitted)="navigateToLesson($event)"></lessons-list>
     <md-card-actions align="end">    
       <button md-button (click)="previousLessons()">PREVIOUS</button>
       <button md-button (click)="nextLessons()">NEXT</button>

@@ -3,11 +3,11 @@ export class Lesson {
     public $key: string,
     public description: string,
     public duration: string,
-    public url: string,
-    public tags: string,
-    public pro: boolean,
     public longDescription: string,
-    public courseId: string) {
+    public tags: string,
+    public url: string,
+    public courseId: string,
+    public videoUrl: string) {
 
   }
 
@@ -24,16 +24,16 @@ export class Lesson {
                    duration,
                    url,
                    tags,
-                   pro,
                    longDescription,
-                   courseId}): Lesson {
+                   courseId,
+                   videoUrl}): Lesson {
     return new Lesson( $key,
                        description,
                        duration,
                        url,
                        tags,
-                       pro,
                        longDescription,
-                       courseId );
+                       courseId,
+                       videoUrl );
   }
 }
