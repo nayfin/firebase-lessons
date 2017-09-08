@@ -22,17 +22,17 @@ export class Lesson {
   static fromJson({$key,
                    description,
                    duration,
-                   url,
-                   tags,
                    longDescription,
+                   tags,
+                   url,
                    courseId,
                    videoUrl}): Lesson {
     return new Lesson( $key,
                        description,
                        duration,
-                       url,
-                       tags,
                        longDescription,
+                       tags,
+                       url,
                        courseId,
                        videoUrl );
   }

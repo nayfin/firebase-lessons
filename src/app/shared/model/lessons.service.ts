@@ -21,21 +21,41 @@ export class LessonsService {
         equalTo: lessonUrl
       }
     };
+    console.log(lessonUrl);
     return this.db.list('lessons', query).map(lessons => Lesson.fromJson(lessons[0]));
   }
 
-  loadNextLesson(lessonId, courseId) {
-    const query = {
-      query: {
-        orderByChild: 'key',
-        equalTo: lessonId
-      }
-    };
-    this.db.object(`lessonsPerCourse/${courseId}`, query)
-    return Observable.of([]);
+  findLessonByKey(lessonKey: string): Observable<Lesson> {
+    return this.db.object(`lessons/${lessonKey}`).map(Lesson.fromJson);
   }
 
-  loadPreviousLesson(lessonId, courseId) {
-    return Observable.of([]);
+  loadNextLesson(courseId, lessonId ) {
+    const query = {
+      query: {
+        orderByKey: true,
+        startAt: lessonId,
+        limitToFirst: 2
+      }
+    };
+    return this.db.list(`lessonsPerCourse/${courseId}`, query)
+      .do(console.log)
+      .map(results => {
+        console.log(results[1]);
+        return results[1].$key;
+      })
+      .switchMap(lessonKey => this.findLessonByKey(lessonKey));
+  }
+
+  loadPreviousLesson( courseId, lessonId ) {
+    const query = {
+      query: {
+        orderByKey: true,
+        endAt: lessonId,
+        limitToLast: 2
+      }
+    };
+    return this.db.list(`lessonsPerCourse/${courseId}`, query)
+      .map(results => results[0].$key)
+      .switchMap(lessonKey => this.findLessonByKey(lessonKey));
   }
 }
