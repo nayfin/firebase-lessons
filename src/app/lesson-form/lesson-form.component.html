@@ -1,3 +1,31 @@
-<p>
-  lesson-form works!
-</p>
+<form [formGroup]="lessonForm">
+
+  <md-form-field >
+    <input 
+      mdInput 
+      placeholder="Description" 
+      formControlName="description">
+    <md-error>Field is required</md-error>
+  </md-form-field>
+
+  <md-form-field >
+    <input mdInput placeholder="Lesson Url" formControlName="url">
+    <md-error>Field is required</md-error>
+  </md-form-field>
+
+  <md-form-field >
+    <input mdInput placeholder="Video Url" formControlName="videoUrl">
+    <md-error>Field is required</md-error>
+  </md-form-field>
+
+  <md-form-field >
+      <input mdInput placeholder="Tags" formControlName="tags">
+    <md-error>Field is required</md-error>
+  </md-form-field>
+
+  <md-form-field >
+    <textarea mdInput placeholder="Long Description" formControlName="longDescription"></textarea>
+    <md-error>Field is required</md-error>
+  </md-form-field>
+</form>
+

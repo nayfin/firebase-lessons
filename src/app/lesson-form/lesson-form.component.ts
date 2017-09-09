@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'bh-lesson-form',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LessonFormComponent implements OnInit {
 
-  constructor() { }
+  lessonForm: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.lessonForm = this.fb.group({
+      description: ['', Validators.required],
+      url: ['', Validators.required],
+      videoUrl: ['', Validators.required],
+      tags: ['', Validators.required],
+      longDescription: ['', Validators.required],
+    });
   }
 
 }
