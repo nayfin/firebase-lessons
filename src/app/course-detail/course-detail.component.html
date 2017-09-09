@@ -1,10 +1,7 @@
 <div class="main-container">
   <md-card class="lessons-card">
-    <md-card-title fxLayoutAlign="space-between">
+    <md-card-title>
         {{ (course$ | async)?.description }}
-        <button md-mini-fab >
-            <md-icon >add</md-icon>
-        </button>
     </md-card-title>
     <!-- <md-card-subtitle>
       Total Lesson: {{filteredLessons?.length}}
@@ -20,6 +17,7 @@
     <md-card-actions align="end">    
       <button md-button (click)="previousLessons()">PREVIOUS</button>
       <button md-button (click)="nextLessons()">NEXT</button>
+      <button md-button routerLink="new-lesson" [queryParams]="{courseId: (course$ | async)?.$key}"> NEW <md-icon >add</md-icon></button>
     </md-card-actions>
   </md-card>
 </div>

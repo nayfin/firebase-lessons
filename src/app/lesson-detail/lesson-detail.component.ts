@@ -13,30 +13,29 @@ import { LessonsService } from './../shared/model/lessons.service';
 })
 export class LessonDetailComponent implements OnInit {
 
-  lessonUrl: string;
   lesson: Lesson;
   constructor( private route: ActivatedRoute,
                private router: Router,
                private lessonsService: LessonsService) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.lessonUrl = params.id;
-      this.lessonsService.findLessonByUrl(this.lessonUrl).subscribe(lesson => this.lesson = lesson);
-    });
+    this.route.params.switchMap((params) => {
+      const lessonUrl = params['id'];
+      return this.lessonsService.findLessonByUrl(lessonUrl);
+    }).subscribe(lesson => this.lesson = lesson);
   }
 
   nextLesson() {
     this.lessonsService.loadNextLesson(this.lesson.courseId, this.lesson.$key)
-      .subscribe(lesson => this.navigateToLesson(lesson.url));
+      .subscribe(this.navigateToLesson.bind(this));
   }
 
   previousLesson() {
     this.lessonsService.loadPreviousLesson(this.lesson.courseId, this.lesson.$key)
-      .subscribe(lesson => this.navigateToLesson(lesson.url));
+      .subscribe(this.navigateToLesson.bind(this));
   }
 
-  navigateToLesson(url: string) {
-    this.router.navigate(['lessons', url]);
+  navigateToLesson(lesson: Lesson) {
+    this.router.navigate(['lessons', lesson.url]);
   }
 }

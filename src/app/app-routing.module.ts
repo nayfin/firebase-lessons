@@ -5,6 +5,7 @@ import { HomeComponent } from './core/home/home.component';
 
 import { LessonsComponent } from './lessons/lessons.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 
@@ -13,15 +14,31 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'lessons',
     children: [
-      { path: ':id', component: LessonDetailComponent},
+      { path: 'new', component: NewLessonComponent},
+      { path: ':id',
+        children: [
+          // {path: 'edit', component: EditLessonComponent},
+          {path: '', component: LessonDetailComponent},
+        ]
+      },
       { path: '', component: LessonsComponent},
     ]
   },
   {
     path: 'courses',
     children: [
-      { path: ':id', component: CourseDetailComponent},
-      { path: '', component: CoursesComponent},
+      {
+        path: ':id',
+        children: [
+        // {path: 'edit', component: EditLessonComponent},
+          { path: '', component: CourseDetailComponent },
+          { path: 'new-lesson', component: NewLessonComponent },
+        ]
+      },
+      {
+        path: '',
+        component: CoursesComponent
+      },
     ]
   },
 ];
