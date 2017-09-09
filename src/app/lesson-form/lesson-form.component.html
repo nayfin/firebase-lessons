@@ -15,7 +15,8 @@
 
   <md-form-field >
     <input mdInput placeholder="Video Url" formControlName="videoUrl">
-    <md-error>Field is required</md-error>
+    <md-error *ngIf="lessonForm.get('videoUrl').hasError('required')">Field is required</md-error>
+    <md-error *ngIf="lessonForm.get('videoUrl').hasError('validUrl')">Invalid url</md-error>    
   </md-form-field>
 
   <md-form-field >

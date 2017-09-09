@@ -19,8 +19,16 @@ export class NewLessonComponent implements OnInit {
     this.courseId = this.route.snapshot.queryParams['courseId'];
   }
 
-  addLesson(lessonForm) {
+  saveLesson(lessonForm) {
     console.log(lessonForm);
+    this.lessonService.createNewLesson(this.courseId, lessonForm.value)
+      .subscribe(
+        () => {
+          alert('Lesson created');
+          lessonForm.reset();
+        },
+        err => alert(`error creating lesson ${err}`)
+      );
   }
 
 }

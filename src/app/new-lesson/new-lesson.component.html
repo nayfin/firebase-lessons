@@ -1,15 +1,19 @@
 <div class="main-container">
   <md-card>
-      <md-card-header>
-          <md-card-title>Create New Lesson</md-card-title>
-          <md-card-subtitle>Fill in lesson data to add new lesson to course</md-card-subtitle>
-      </md-card-header>
-      <md-card-content>
-          <bh-lesson-form #lessonForm></bh-lesson-form>       
-      </md-card-content>
-      <md-card-actions align="end">
-          <button md-button (click)="addLesson(lessonForm)">ADD LESSON</button>
-          
-      </md-card-actions>
+    <md-card-header>
+      <md-card-title>Create New Lesson</md-card-title>
+      <md-card-subtitle>Fill in lesson data to add new lesson to course</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <bh-lesson-form #lessonForm></bh-lesson-form>       
+    </md-card-content>
+    <md-card-actions align="end">
+      <button 
+        md-button
+        [disabled]="lessonForm.invalid" 
+        (click)="saveLesson(lessonForm)">
+        ADD LESSON
+      </button>
+    </md-card-actions>
   </md-card>
 </div>

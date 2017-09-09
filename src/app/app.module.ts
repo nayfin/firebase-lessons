@@ -36,6 +36,7 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { SafeUrlPipe } from './shared/security/safe-url.pipe';
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { LessonFormComponent } from './lesson-form/lesson-form.component';
+import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LessonFormComponent } from './lesson-form/lesson-form.component';
     SafeUrlPipe,
     NewLessonComponent,
     LessonFormComponent,
+    EditLessonComponent,
   ],
   imports: [
     BrowserModule,
