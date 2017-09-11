@@ -5,14 +5,13 @@
         <md-card-subtitle>Edit lesson data and submit to update lesson</md-card-subtitle>
       </md-card-header>
       <md-card-content>
-        <bh-lesson-form #lessonForm></bh-lesson-form>       
+        <bh-lesson-form [initialValue]="lesson" #lessonForm></bh-lesson-form>       
       </md-card-content>
       <md-card-actions align="end">
         <button 
           md-button
           [disabled]="lessonForm.invalid" 
-          (click)="updateLesson(lessonForm)"
-          >
+          (click)="updateLesson(lessonForm.value)">
           UPDATE LESSON
         </button>
       </md-card-actions>

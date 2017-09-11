@@ -6,8 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
+// rsJs imports
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
@@ -37,6 +39,7 @@ import { SafeUrlPipe } from './shared/security/safe-url.pipe';
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { LessonFormComponent } from './lesson-form/lesson-form.component';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
+import { LessonResolver } from './shared/model/lesson.resolver';
 
 @NgModule({
   declarations: [
@@ -67,6 +70,7 @@ import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
   providers: [
     LessonsService,
     CoursesService,
+    LessonResolver,
   ],
   bootstrap: [AppComponent]
 })

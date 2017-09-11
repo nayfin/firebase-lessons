@@ -9,6 +9,8 @@ import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+// Data resolvers
+import { LessonResolver } from './shared/model/lesson.resolver';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,7 +19,13 @@ const appRoutes: Routes = [
     children: [
       { path: ':id',
         children: [
-          {path: 'edit', component: EditLessonComponent},
+          {
+            path: 'edit',
+            component: EditLessonComponent,
+            resolve: {
+              lesson: LessonResolver
+            }
+          },
           {path: '', component: LessonDetailComponent},
         ]
       },
