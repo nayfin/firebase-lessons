@@ -40,6 +40,8 @@ import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { LessonFormComponent } from './lesson-form/lesson-form.component';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 import { LessonResolver } from './shared/model/lesson.resolver';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { LessonResolver } from './shared/model/lesson.resolver';
     NewLessonComponent,
     LessonFormComponent,
     EditLessonComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

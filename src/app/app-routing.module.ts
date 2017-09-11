@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 import { LessonsComponent } from './lessons/lessons.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
@@ -14,7 +16,9 @@ import { LessonResolver } from './shared/model/lesson.resolver';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent},
+  { path: 'home',     component: HomeComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'login',    component: LoginComponent},
   { path: 'lessons',
     children: [
       { path: ':id',
