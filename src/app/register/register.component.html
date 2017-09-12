@@ -1,3 +1,42 @@
-<p>
-  register works!
-</p>
+<form [formGroup]="registrationForm">
+    
+      <md-form-field >
+        <input 
+          mdInput 
+          placeholder="Email" 
+          formControlName="email"
+          type="email">
+        <md-error>Email is required</md-error>
+      </md-form-field>
+        
+      <md-form-field >
+        <input 
+          mdInput placeholder="Password" 
+          formControlName="password" 
+          type="password">
+        <md-error>Password is required</md-error>
+      </md-form-field>
+    
+      <md-form-field >
+          <input 
+            mdInput placeholder="ConfirmPassword" 
+            formControlName="confirmPassword" 
+            type="password">
+          <md-error
+            *ngIf="registrationForm.get('confirmPassword').hasError('required')">
+            Password is required
+          </md-error>
+          <md-error
+            *ngIf="registrationForm.get('confirmPassword').hasError('passwordsMatch')">
+          Passwords must match
+        </md-error>
+        </md-form-field>
+
+      <button 
+        md-raised-button 
+        (click)="signUp()" 
+        [disabled]="!isPasswordMatch()">
+        SIGN UP
+      </button>
+    </form>
+        

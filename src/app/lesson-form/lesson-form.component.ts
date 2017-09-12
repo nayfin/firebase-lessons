@@ -13,7 +13,7 @@ export class LessonFormComponent implements OnInit, OnChanges {
 
   @Input() initialValue: Lesson;
   lessonForm: FormGroup;
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder) {
 
     this.lessonForm = this.fb.group({
       description: ['', Validators.required],

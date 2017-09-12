@@ -23,25 +23,27 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 // App Components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { CoursesComponent } from './courses/courses.component';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { CoursesService } from './shared/model/courses.service';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import { LessonFormComponent } from './lesson-form/lesson-form.component';
+import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
+import { LessonsComponent } from './lessons/lessons.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 // Library Components TODO: factor into library module
 import { FormComponent } from './lib/forms/form/form.component';
 import { InputComponent } from './lib/forms/input/input.component';
 // Services
+import { AuthService } from './shared/security/auth.service';
 import { LessonsService } from './shared/model/lessons.service';
-import { CoursesService } from './shared/model/courses.service';
-import { CourseDetailComponent } from './course-detail/course-detail.component';
-import { LessonsComponent } from './lessons/lessons.component';
-import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 // Pipes
 import { SafeUrlPipe } from './shared/security/safe-url.pipe';
-import { NewLessonComponent } from './new-lesson/new-lesson.component';
-import { LessonFormComponent } from './lesson-form/lesson-form.component';
-import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
+// Resolvers
 import { LessonResolver } from './shared/model/lesson.resolver';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { RegisterComponent } from './register/register.component';
   providers: [
     LessonsService,
     CoursesService,
+    AuthService,
     LessonResolver,
   ],
   bootstrap: [AppComponent]

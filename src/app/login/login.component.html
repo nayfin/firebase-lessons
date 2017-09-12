@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<form [formGroup]="loginForm">
+
+  <md-form-field >
+    <input 
+      mdInput 
+      placeholder="Email" 
+      formControlName="email"
+      type="email">
+    <md-error>Email is required</md-error>
+  </md-form-field>
+    
+  <md-form-field >
+    <input 
+      mdInput placeholder="Password" 
+      formControlName="password" 
+      type="password">
+    <md-error>Field is required</md-error>
+  </md-form-field>
+
+  <button md-raised-button (click)="login()">LOGIN</button>
+</form>
+    
