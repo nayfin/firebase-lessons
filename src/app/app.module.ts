@@ -44,6 +44,8 @@ import { LessonsService } from './shared/model/lessons.service';
 import { SafeUrlPipe } from './shared/security/safe-url.pipe';
 // Resolvers
 import { LessonResolver } from './shared/model/lesson.resolver';
+// Guards
+import { AuthGuard } from './shared/security/auth.guard';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { LessonResolver } from './shared/model/lesson.resolver';
     CoursesService,
     AuthService,
     LessonResolver,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

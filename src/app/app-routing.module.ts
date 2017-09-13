@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/security/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -30,7 +31,7 @@ const appRoutes: Routes = [
               lesson: LessonResolver
             }
           },
-          {path: '', component: LessonDetailComponent},
+          {path: '', component: LessonDetailComponent, canActivate: [AuthGuard]},
         ]
       },
       { path: '', component: LessonsComponent},
